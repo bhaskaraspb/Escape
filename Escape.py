@@ -3,6 +3,7 @@ import math
 def open_game ():
 #Opening message for player once game begins
 	print "Good morning, Captain Zhorkov. The year is 2314."
+#raw_input is included here to slowly output the opening message, as user reads
 	gap = raw_input("")
 	print "You have been chosen by the Federation of Space Expansion" 
 	gap = raw_input("")
@@ -18,7 +19,7 @@ def open_game ():
 	gap = raw_input("")
 	leave_earth()
 
-#Game logo that is displayed before game begins
+#Template for game logo that is displayed before game begins
 opening_line = """
 E  S  C  A  P  E
 v1	-bhaskaraspb 
@@ -35,6 +36,7 @@ def start_game () :
 		open_game () 
 	
 #Beginning stats for the user 
+#At the moment these are static; next version should include randomness
 year = 2314
 energy_count = 100
 human_count = 10
@@ -63,7 +65,7 @@ def leave_earth ():
 	print "The knowledge level of your colony is %d." % knowledge_level
 	next_turn()
 
-#Refreshes stats upon each turn
+#Refreshes stats upon each turn. Calls each helper function refresh the corresponding stat.
 def pass_turn ():
 	global year
 	year +=1
@@ -101,20 +103,15 @@ def pass_turn ():
 def next_turn():
 	decision = raw_input("What would you like to do now?\n")
 	if "greenhouse" in decision:
-#		number = raw_input("How many?")
-		build_greenhouse()# * number
+		build_greenhouse()
 	elif "solar" in decision:
-#		number = raw_input("How many?")
-		build_solar_farm()# * number
+		build_solar_farm()
 	elif "mineral harvester" in decision:
-#		number = raw_input("How many?")
-		build_mineral_harvester()# * number
+		build_mineral_harvester()
 	elif "engineering school" in decision:
-#		number = raw_input("How many?")
-		build_engineering_school()# * number
+		build_engineering_school()
 	elif "science lab" in decision:
-#		number = raw_input("How many?")
-		build_science_lab()# * number
+		build_science_lab()
 	elif "battery" in decision:
 		research_battery_tech()
 	elif "hibernation" in decision:
